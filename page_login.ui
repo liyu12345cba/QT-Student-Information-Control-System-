@@ -33,7 +33,7 @@
     <normaloff>:/icon.jpg</normaloff>:/icon.jpg</iconset>
   </property>
   <property name="toolTip">
-   <string>This is LOGIN</string>
+   <string/>
   </property>
   <property name="styleSheet">
    <string notr="true">QWidget{background-color: rgb(229, 229, 229);}</string>
@@ -73,7 +73,7 @@
         </property>
         <property name="sizeHint" stdset="0">
          <size>
-          <width>67</width>
+          <width>45</width>
           <height>20</height>
          </size>
         </property>
@@ -89,7 +89,7 @@
         </property>
         <property name="font">
          <font>
-          <family>Consolas</family>
+          <family>Forte</family>
           <pointsize>18</pointsize>
          </font>
         </property>
@@ -108,7 +108,7 @@
         </property>
         <property name="sizeHint" stdset="0">
          <size>
-          <width>50</width>
+          <width>45</width>
           <height>20</height>
          </size>
         </property>
@@ -120,11 +120,12 @@
    <item row="1" column="0">
     <widget class="QWidget" name="widget_3" native="true">
      <property name="styleSheet">
-      <string notr="true">background-color: rgb(255, 255, 255);</string>
+      <string notr="true">background-color: rgb(255, 255, 255);
+</string>
      </property>
      <layout class="QGridLayout" name="gridLayout">
       <property name="topMargin">
-       <number>23</number>
+       <number>18</number>
       </property>
       <property name="bottomMargin">
        <number>0</number>
@@ -160,6 +161,9 @@
       </item>
       <item row="0" column="2">
        <widget class="QLineEdit" name="le_user">
+        <property name="styleSheet">
+         <string notr="true">QLineEdit{border:2px solid #bdc3c7;min-height:22;border-radius:6;}</string>
+        </property>
         <property name="maxLength">
          <number>8</number>
         </property>
@@ -202,6 +206,9 @@
       </item>
       <item row="1" column="2">
        <widget class="QLineEdit" name="le_password">
+        <property name="styleSheet">
+         <string notr="true">QLineEdit{border:2px solid #bdc3c7;min-height:22;border-radius:6;}</string>
+        </property>
         <property name="maxLength">
          <number>8</number>
         </property>
@@ -219,7 +226,9 @@
    <item row="2" column="0">
     <widget class="QWidget" name="widget_2" native="true">
      <property name="styleSheet">
-      <string notr="true">background-color: rgb(255, 255, 255);</string>
+      <string notr="true">QPushButton{border:2px solid #bdc3c7;min-height:22;border-radius:6;}
+
+QWidget{background-color: rgb(255, 255, 255);}</string>
      </property>
      <layout class="QGridLayout" name="gridLayout_2">
       <property name="topMargin">
@@ -259,15 +268,16 @@
          </font>
         </property>
         <property name="toolTip">
-         <string/>
+         <string>TRY TO LOGIN</string>
         </property>
         <property name="styleSheet">
-         <string notr="true">
+         <string notr="true">QPushButton{border:2px solid #bdc3c7;min-height:22;border-radius:6;}
 
 QPushButton{background-color: rgb(247, 247, 247);}
 
-QPushButton:hover{background-color: rgb(238, 238, 238); }
-</string>
+QPushButton:hover{background-color: rgb(238, 238, 238);}
+
+QPushButton:pressed{background-color: rgb(220, 220, 220);}</string>
         </property>
         <property name="text">
          <string>Login</string>
@@ -288,13 +298,17 @@ QPushButton:hover{background-color: rgb(238, 238, 238); }
           <pointsize>10</pointsize>
          </font>
         </property>
+        <property name="toolTip">
+         <string>GET OUT OF MY WAY</string>
+        </property>
         <property name="styleSheet">
          <string notr="true">
 
 QPushButton{background-color: rgb(247, 247, 247);}
 
 QPushButton:hover{background-color: rgb(238, 238, 238); }
-</string>
+
+QPushButton:pressed{background-color: rgb(220, 220, 220);}</string>
         </property>
         <property name="text">
          <string>Exit</string>

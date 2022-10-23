@@ -1,5 +1,6 @@
 #include "mainwindow.h"
 #include "page_login.h"
+#include "stusql.h"
 
 #include <QApplication>
 
@@ -9,5 +10,6 @@ int main(int argc, char *argv[])
     MainWindow w;
 //    w.show();
 
+    stusql sql;
     return a.exec();
 }

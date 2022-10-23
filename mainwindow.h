@@ -5,6 +5,7 @@
 #include "page_login.h"
 
 QT_BEGIN_NAMESPACE
+
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
 
@@ -16,8 +17,11 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
+     virtual void keyPressEvent(QKeyEvent *event);
+
 private slots:
     void on_btn_exit_clicked();
+
 
 private:
     Ui::MainWindow *ui;
