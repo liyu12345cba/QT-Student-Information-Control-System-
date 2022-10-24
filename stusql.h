@@ -4,6 +4,7 @@
 #include <QObject>
 #include <QSqlDatabase>
 
+
 struct StuInfo
 {
     int id;
@@ -26,6 +27,17 @@ class stusql : public QObject
 {
     Q_OBJECT
 public:
+    static stusql *ptrstuSql;
+    static stusql *getinstance()
+    {
+        if(nullptr == ptrstuSql)
+        {
+            ptrstuSql = new stusql;
+        }
+        return ptrstuSql;
+
+    }
+
     explicit stusql(QObject *parent = nullptr);
 
     void init();

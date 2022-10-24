@@ -145,6 +145,123 @@ border:none;
               <property name="spacing">
                <number>0</number>
               </property>
+              <item row="1" column="0">
+               <widget class="QTableWidget" name="tableWidget">
+                <property name="font">
+                 <font>
+                  <family>黑体</family>
+                 </font>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">QTableWidget{
+border:0px solid rgb(250, 250, 250);
+}
+
+QHeaderView::section{
+background-color: rgb(250, 250, 250);
+height:50px;
+border:1px solid rgb(235, 235, 235);
+}
+
+QTableWidget::item
+{
+border:1px solid rgb(235, 235, 235);
+}
+</string>
+                </property>
+                <attribute name="horizontalHeaderStretchLastSection">
+                 <bool>true</bool>
+                </attribute>
+                <attribute name="verticalHeaderVisible">
+                 <bool>false</bool>
+                </attribute>
+                <row>
+                 <property name="text">
+                  <string>1</string>
+                 </property>
+                </row>
+                <column>
+                 <property name="text">
+                  <string>序号</string>
+                 </property>
+                </column>
+                <column>
+                 <property name="text">
+                  <string>姓名</string>
+                 </property>
+                </column>
+                <column>
+                 <property name="text">
+                  <string>年龄</string>
+                 </property>
+                </column>
+                <column>
+                 <property name="text">
+                  <string>年级</string>
+                 </property>
+                </column>
+                <column>
+                 <property name="text">
+                  <string>班级</string>
+                 </property>
+                </column>
+                <column>
+                 <property name="text">
+                  <string>学号</string>
+                 </property>
+                </column>
+                <column>
+                 <property name="text">
+                  <string>电话</string>
+                 </property>
+                </column>
+                <column>
+                 <property name="text">
+                  <string>微信</string>
+                 </property>
+                </column>
+                <item row="0" column="0">
+                 <property name="text">
+                  <string>1</string>
+                 </property>
+                </item>
+                <item row="0" column="1">
+                 <property name="text">
+                  <string>张三</string>
+                 </property>
+                </item>
+                <item row="0" column="2">
+                 <property name="text">
+                  <string>5</string>
+                 </property>
+                </item>
+                <item row="0" column="3">
+                 <property name="text">
+                  <string>1</string>
+                 </property>
+                </item>
+                <item row="0" column="4">
+                 <property name="text">
+                  <string>3</string>
+                 </property>
+                </item>
+                <item row="0" column="5">
+                 <property name="text">
+                  <string>1113522</string>
+                 </property>
+                </item>
+                <item row="0" column="6">
+                 <property name="text">
+                  <string>13883527555</string>
+                 </property>
+                </item>
+                <item row="0" column="7">
+                 <property name="text">
+                  <string>admin</string>
+                 </property>
+                </item>
+               </widget>
+              </item>
               <item row="0" column="0">
                <widget class="QWidget" name="widget_3" native="true">
                 <property name="maximumSize">
@@ -356,121 +473,34 @@ QPushButton:pressed{background-color: rgb(220, 220, 220);}</string>
                 </layout>
                </widget>
               </item>
-              <item row="1" column="0">
-               <widget class="QTableWidget" name="tableWidget">
+              <item row="2" column="0">
+               <widget class="QPushButton" name="btn_simulation">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
                 <property name="font">
                  <font>
-                  <family>黑体</family>
+                  <family>Consolas</family>
                  </font>
                 </property>
-                <property name="styleSheet">
-                 <string notr="true">QTableWidget{
-border:0px solid rgb(250, 250, 250);
-}
-
-QHeaderView::section{
-background-color: rgb(250, 250, 250);
-height:50px;
-border:1px solid rgb(235, 235, 235);
-}
-
-QTableWidget::item
-{
-border:1px solid rgb(235, 235, 235);
-}
-</string>
+                <property name="layoutDirection">
+                 <enum>Qt::LeftToRight</enum>
                 </property>
-                <attribute name="horizontalHeaderStretchLastSection">
-                 <bool>true</bool>
-                </attribute>
-                <attribute name="verticalHeaderVisible">
-                 <bool>false</bool>
-                </attribute>
-                <row>
-                 <property name="text">
-                  <string>1</string>
-                 </property>
-                </row>
-                <column>
-                 <property name="text">
-                  <string>序号</string>
-                 </property>
-                </column>
-                <column>
-                 <property name="text">
-                  <string>姓名</string>
-                 </property>
-                </column>
-                <column>
-                 <property name="text">
-                  <string>年龄</string>
-                 </property>
-                </column>
-                <column>
-                 <property name="text">
-                  <string>年级</string>
-                 </property>
-                </column>
-                <column>
-                 <property name="text">
-                  <string>班级</string>
-                 </property>
-                </column>
-                <column>
-                 <property name="text">
-                  <string>学号</string>
-                 </property>
-                </column>
-                <column>
-                 <property name="text">
-                  <string>电话</string>
-                 </property>
-                </column>
-                <column>
-                 <property name="text">
-                  <string>微信</string>
-                 </property>
-                </column>
-                <item row="0" column="0">
-                 <property name="text">
-                  <string>1</string>
-                 </property>
-                </item>
-                <item row="0" column="1">
-                 <property name="text">
-                  <string>张三</string>
-                 </property>
-                </item>
-                <item row="0" column="2">
-                 <property name="text">
-                  <string>5</string>
-                 </property>
-                </item>
-                <item row="0" column="3">
-                 <property name="text">
-                  <string>1</string>
-                 </property>
-                </item>
-                <item row="0" column="4">
-                 <property name="text">
-                  <string>3</string>
-                 </property>
-                </item>
-                <item row="0" column="5">
-                 <property name="text">
-                  <string>1113522</string>
-                 </property>
-                </item>
-                <item row="0" column="6">
-                 <property name="text">
-                  <string>13883527555</string>
-                 </property>
-                </item>
-                <item row="0" column="7">
-                 <property name="text">
-                  <string>admin</string>
-                 </property>
-                </item>
+                <property name="styleSheet">
+                 <string notr="true">QPushButton{border:2px solid #bdc3c7;min-height:22;border-radius:6;}
+
+QPushButton{background-color: rgb(247, 247, 247);}
+
+QPushButton:hover{background-color: rgb(238, 238, 238); }
+
+QPushButton:pressed{background-color: rgb(220, 220, 220);}</string>
+                </property>
+                <property name="text">
+                 <string>simulation</string>
+                </property>
                </widget>
               </item>
              </layout>

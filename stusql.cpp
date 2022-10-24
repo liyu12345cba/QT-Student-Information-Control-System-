@@ -4,10 +4,12 @@
 #include <QSqlQuery>
 #include <qdebug.h>
 #include <QSqlError>
+#include <qsqlquery.h>
+
+stusql *stusql::ptrstuSql = nullptr;
 
 stusql::stusql(QObject *parent) : QObject(parent)
 {
-      init();
 
 //      StuInfo s;
 //      s.name = "steve";
@@ -141,6 +143,10 @@ bool stusql::UpdateStuInfo(StuInfo info)
     {
         qDebug()<<e.text();
     }
+
+    QSqlQuery query;
+    query.finish();
+
     return ret;
 }
 
