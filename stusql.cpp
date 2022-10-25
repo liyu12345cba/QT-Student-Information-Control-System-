@@ -128,7 +128,9 @@ bool stusql::clearStuTable()
 {
     QSqlQuery sql(m_db);
 
-    return sql.exec("delete from student");
+    sql.exec("delete from student");
+
+    return sql.exec("delete from sqlite_sequence where name ='student'");
 }
 
 bool stusql::UpdateStuInfo(StuInfo info)

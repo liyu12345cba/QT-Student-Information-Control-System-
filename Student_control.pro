@@ -17,17 +17,20 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    dlg_addstu.cpp \
     main.cpp \
     mainwindow.cpp \
     page_login.cpp \
     stusql.cpp
 
 HEADERS += \
+    dlg_addstu.h \
     mainwindow.h \
     page_login.h \
     stusql.h
 
 FORMS += \
+    dlg_addstu.ui \
     mainwindow.ui \
     page_login.ui
 

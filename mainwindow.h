@@ -5,6 +5,7 @@
 #include <QMainWindow>
 #include "page_login.h"
 #include "stusql.h"
+#include "dlg_addstu.h"
 
 QT_BEGIN_NAMESPACE
 
@@ -27,10 +28,22 @@ private slots:
 
     void on_btn_simulation_clicked();
 
+    void on_btn_add_clicked();
+
+    void on_btn_clear_clicked();
+
+    void on_btn_del_clicked();
+
+    void on_btn_update_clicked();
+
+private:
+    void updateTable();
+
 private:
     Ui::MainWindow *ui;
     Page_Login m_dlgLogin;
     stusql *m_ptrStuSql;
     QStringList m_lNames;
+    Dlg_AddStu m_dlgAddStu;
 };
 #endif // MAINWINDOW_H

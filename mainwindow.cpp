@@ -5,7 +5,7 @@
 #include "stusql.h"
 #include "qsqlquery.h"
 
-
+#include <QMessageBox>
 #include <QRandomGenerator>
 #include <QFile>
 #include <QKeyEvent>
@@ -178,23 +178,7 @@ MainWindow::MainWindow(QWidget *parent)
     m_lNames<<"撒夏蓉";
 
 
-    auto cnt = m_ptrStuSql->getStuCnt();
-    QList<StuInfo> lStudents =  m_ptrStuSql->getPageStu(0,cnt);
-
-    ui->tableWidget->setRowCount(cnt);
-
-
-    for(int i = 0; i<lStudents.size() ;i++)
-    {
-        ui->tableWidget->setItem(i,0,new QTableWidgetItem(QString::number(i)));
-        ui->tableWidget->setItem(i,1,new QTableWidgetItem(lStudents[i].name));
-        ui->tableWidget->setItem(i,2,new QTableWidgetItem(QString::number(lStudents[i].age)));
-        ui->tableWidget->setItem(i,3,new QTableWidgetItem(QString::number(lStudents[i].grade)));
-        ui->tableWidget->setItem(i,4,new QTableWidgetItem(QString::number(lStudents[i].uiclass)));
-        ui->tableWidget->setItem(i,5,new QTableWidgetItem(QString::number(lStudents[i].studentid)));
-        ui->tableWidget->setItem(i,6,new QTableWidgetItem(lStudents[i].phone));
-        ui->tableWidget->setItem(i,7,new QTableWidgetItem(lStudents[i].wechat));
-    }
+    updateTable();
 
 }
 
@@ -257,5 +241,88 @@ void MainWindow::on_btn_simulation_clicked()
 
         m_ptrStuSql->addStu(info);
     }
+
+}
+
+void MainWindow::on_btn_add_clicked()
+{
+    m_dlgAddStu.setType(true);
+    m_dlgAddStu.exec();
+    updateTable();
+}
+
+void MainWindow::on_btn_clear_clicked()
+{
+    m_ptrStuSql->clearStuTable();
+    updateTable();
+}
+
+void MainWindow::updateTable()
+{
+    ui->tableWidget->clear();
+    ui->tableWidget->setColumnCount(9);
+    QStringList l;
+    l<<"序号"<<"id"<<"姓名"<<"年龄"<<"年级"<<"班级"<<"学号"<<"电话"<<"微信";
+
+
+
+    ui->tableWidget->setHorizontalHeaderLabels(l);//只选中行
+    ui->tableWidget->setSelectionBehavior(QAbstractItemView::SelectRows);
+    ui->tableWidget->setSelectionMode(QAbstractItemView::SingleSelection);
+    ui->tableWidget->setEditTriggers(QAbstractItemView::NoEditTriggers);
+
+    auto cnt = m_ptrStuSql->getStuCnt();
+    QLabel lb_cnt;
+    ui->lb_cnt->setText(QString("The num of students : %1").arg(cnt));
+    QList<StuInfo> lStudents =  m_ptrStuSql->getPageStu(0,cnt);
+
+    ui->tableWidget->setRowCount(cnt);
+
+
+    for(int i = 0; i<lStudents.size() ;i++)
+    {
+        ui->tableWidget->setItem(i,0,new QTableWidgetItem(QString::number(i)));
+        ui->tableWidget->setItem(i,1,new QTableWidgetItem(QString::number(lStudents[i].id)));
+        ui->tableWidget->setItem(i,2,new QTableWidgetItem(lStudents[i].name));
+        ui->tableWidget->setItem(i,3,new QTableWidgetItem(QString::number(lStudents[i].age)));
+        ui->tableWidget->setItem(i,4,new QTableWidgetItem(QString::number(lStudents[i].grade)));
+        ui->tableWidget->setItem(i,5,new QTableWidgetItem(QString::number(lStudents[i].uiclass)));
+        ui->tableWidget->setItem(i,6,new QTableWidgetItem(QString::number(lStudents[i].studentid)));
+        ui->tableWidget->setItem(i,7,new QTableWidgetItem(lStudents[i].phone));
+        ui->tableWidget->setItem(i,8,new QTableWidgetItem(lStudents[i].wechat));
+    }
+}
+
+void MainWindow::on_btn_del_clicked()
+{
+    int i = ui->tableWidget->currentRow();
+    if(i>=0)
+    {
+        int id = ui->tableWidget->item(i,1)->text().toUInt();
+        m_ptrStuSql->delStu(id);
+        updateTable();
+        QMessageBox::information(nullptr,"HEY","DELETE DONE!");
+    }
+}
+
+void MainWindow::on_btn_update_clicked()
+{
+    StuInfo info;
+    int i = ui->tableWidget->currentRow();
+    if(i>=0)
+    {
+        info.id = ui->tableWidget->item(i,1)->text().toUInt();
+        info.name = ui->tableWidget->item(i,2)->text();
+        info.age = ui->tableWidget->item(i,3)->text().toUInt();
+        info.grade = ui->tableWidget->item(i,4)->text().toUInt();
+        info.uiclass = ui->tableWidget->item(i,5)->text().toUInt();
+        info.studentid = ui->tableWidget->item(i,6)->text().toUInt();
+        info.phone = ui->tableWidget->item(i,7)->text();
+        info.wechat = ui->tableWidget->item(i,8)->text();
+        m_dlgAddStu.setType(false,info);
+        m_dlgAddStu.exec();
+    }
+
+    updateTable();
 
 }
