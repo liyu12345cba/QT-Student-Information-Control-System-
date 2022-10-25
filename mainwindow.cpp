@@ -183,18 +183,18 @@ MainWindow::MainWindow(QWidget *parent)
 
     ui->tableWidget->setRowCount(cnt);
 
-    for(int i = 0; i<lStudents.size();i++)
+
+    for(int i = 0; i<lStudents.size() ;i++)
     {
         ui->tableWidget->setItem(i,0,new QTableWidgetItem(QString::number(i)));
         ui->tableWidget->setItem(i,1,new QTableWidgetItem(lStudents[i].name));
         ui->tableWidget->setItem(i,2,new QTableWidgetItem(QString::number(lStudents[i].age)));
         ui->tableWidget->setItem(i,3,new QTableWidgetItem(QString::number(lStudents[i].grade)));
-        ui->tableWidget->setItem(i,0,new QTableWidgetItem(QString::number(lStudents[i].uiclass)));
-        ui->tableWidget->setItem(i,0,new QTableWidgetItem(QString::number(lStudents[i].studentid)));
-        ui->tableWidget->setItem(i,0,new QTableWidgetItem(lStudents[i].phone));
-        ui->tableWidget->setItem(i,0,new QTableWidgetItem(lStudents[i].wechat));
+        ui->tableWidget->setItem(i,4,new QTableWidgetItem(QString::number(lStudents[i].uiclass)));
+        ui->tableWidget->setItem(i,5,new QTableWidgetItem(QString::number(lStudents[i].studentid)));
+        ui->tableWidget->setItem(i,6,new QTableWidgetItem(lStudents[i].phone));
+        ui->tableWidget->setItem(i,7,new QTableWidgetItem(lStudents[i].wechat));
     }
-
 
 }
 
@@ -225,7 +225,6 @@ void MainWindow::on_btn_exit_clicked()
 
 void MainWindow::on_btn_simulation_clicked()
 {
-    QStringList l;
 
     QRandomGenerator g,c;
     g.seed(0);

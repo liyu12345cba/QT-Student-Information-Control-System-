@@ -29,19 +29,22 @@ stusql::stusql(QObject *parent) : QObject(parent)
 //      s.name = "cha";
 //      UpdateStuInfo(s);
 
-      UserInfo info;
-      info.username = "LEE";
-      info.password = "123456";
-      info.aut = "admin";
 
-      AddUser(info);
-      AddUser(info);
-      auto l = getALLUser();
-      qDebug()<<isExit("LEE");
+//检查接口是否正确
+//      UserInfo info;
+//      info.username = "LEE";
+//      info.password = "123456";
+//      info.aut = "admin";
 
-      info.password = "666";
-      updateUser(info);
-      delUser("LEE");
+//      AddUser(info);
+//      AddUser(info);
+//      auto l = getALLUser();
+//      qDebug()<<isExit("LEE");
+
+//      info.password = "666";
+//      updateUser(info);
+//      delUser("LEE");
+
 }
 
 void stusql::init()
@@ -69,6 +72,7 @@ quint32 stusql::getStuCnt()
     {
         uiCnt = sql.value(0).toUInt();
     }
+
     return uiCnt;
 }
 
@@ -78,7 +82,7 @@ QList<StuInfo> stusql::getPageStu(quint32 page, quint32 uiCnt)
     QSqlQuery sql(m_db);
     QString strsql = QString("select * from student order by id limit %1 offset %2").
             arg(uiCnt).arg(page*uiCnt);
-    sql.exec("strsql");
+    sql.exec(strsql);
 
     StuInfo info;
 
@@ -94,6 +98,7 @@ QList<StuInfo> stusql::getPageStu(quint32 page, quint32 uiCnt)
         info.wechat = sql.value(7).toString();
         l.push_back(info);
     }
+
     return l;
 }
 
@@ -108,18 +113,21 @@ bool stusql::addStu(StuInfo info)
             arg(info.studentid).
             arg(info.phone).
             arg(info.wechat);
+
     return sql.exec(strSql);
 }
 
 bool stusql::delStu(int id)
 {
     QSqlQuery sql(m_db);
+
     return sql.exec(QString("delete from student where id = %1").arg(id));;
 }
 
 bool stusql::clearStuTable()
 {
     QSqlQuery sql(m_db);
+
     return sql.exec("delete from student");
 }
 
@@ -144,10 +152,32 @@ bool stusql::UpdateStuInfo(StuInfo info)
         qDebug()<<e.text();
     }
 
-    QSqlQuery query;
-    query.finish();
-
     return ret;
+
+}
+
+QList<StuInfo> stusql::getALLStu()
+{
+    QList<StuInfo> l;
+    QSqlQuery sql(m_db);
+    sql.exec("select * from Stuname");
+
+    StuInfo info;
+    while(sql.next())
+    {
+        info.id = sql.value(0).toUInt();
+        info.name = sql.value(1).toString();
+        info.age = sql.value(2).toUInt();
+        info.grade = sql.value(3).toUInt();
+        info.uiclass = sql.value(4).toUInt();
+        info.studentid = sql.value(5).toUInt();
+        info.phone = sql.value(6).toString();
+        info.wechat = sql.value(7).toString();
+
+        l.push_back(info);
+    }
+
+    return l;
 }
 
 QList<UserInfo> stusql::getALLUser()
@@ -165,6 +195,7 @@ QList<UserInfo> stusql::getALLUser()
 
         l.push_back(info);
     }
+
     return l;
 }
 
@@ -172,6 +203,7 @@ bool stusql::isExit(QString strUser)
 {
     QSqlQuery sql(m_db);
     sql.exec (QString("select *from username where username = '%1'").arg(strUser));
+
     return sql.next();
 }
 
@@ -191,6 +223,7 @@ bool stusql::updateUser(UserInfo info)
     {
         qDebug()<<e.text();
     }
+
     return ret;
 }
 
@@ -208,6 +241,7 @@ bool stusql::AddUser(UserInfo info)
 bool stusql::delUser(QString strUserName)
 {
     QSqlQuery sql(m_db);
+
     return sql.exec (QString("delete from username where username ='%1'").arg(strUserName));
 
 }

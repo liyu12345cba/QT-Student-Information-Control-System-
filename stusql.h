@@ -60,6 +60,9 @@ public:
     //edit imformation of student
     bool UpdateStuInfo(StuInfo info);
 
+    //search all students
+    QList<StuInfo> getALLStu();
+
     //search all User
     QList<UserInfo> getALLUser();
 

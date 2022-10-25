@@ -147,11 +147,6 @@ border:none;
               </property>
               <item row="1" column="0">
                <widget class="QTableWidget" name="tableWidget">
-                <property name="font">
-                 <font>
-                  <family>黑体</family>
-                 </font>
-                </property>
                 <property name="styleSheet">
                  <string notr="true">QTableWidget{
 border:0px solid rgb(250, 250, 250);
@@ -175,11 +170,6 @@ border:1px solid rgb(235, 235, 235);
                 <attribute name="verticalHeaderVisible">
                  <bool>false</bool>
                 </attribute>
-                <row>
-                 <property name="text">
-                  <string>1</string>
-                 </property>
-                </row>
                 <column>
                  <property name="text">
                   <string>序号</string>
@@ -220,46 +210,6 @@ border:1px solid rgb(235, 235, 235);
                   <string>微信</string>
                  </property>
                 </column>
-                <item row="0" column="0">
-                 <property name="text">
-                  <string>1</string>
-                 </property>
-                </item>
-                <item row="0" column="1">
-                 <property name="text">
-                  <string>张三</string>
-                 </property>
-                </item>
-                <item row="0" column="2">
-                 <property name="text">
-                  <string>5</string>
-                 </property>
-                </item>
-                <item row="0" column="3">
-                 <property name="text">
-                  <string>1</string>
-                 </property>
-                </item>
-                <item row="0" column="4">
-                 <property name="text">
-                  <string>3</string>
-                 </property>
-                </item>
-                <item row="0" column="5">
-                 <property name="text">
-                  <string>1113522</string>
-                 </property>
-                </item>
-                <item row="0" column="6">
-                 <property name="text">
-                  <string>13883527555</string>
-                 </property>
-                </item>
-                <item row="0" column="7">
-                 <property name="text">
-                  <string>admin</string>
-                 </property>
-                </item>
                </widget>
               </item>
               <item row="0" column="0">
@@ -754,6 +704,31 @@ border:1px solid rgb(255, 255, 255);
                 <column>
                  <property name="text">
                   <string>0</string>
+                 </property>
+                </column>
+                <column>
+                 <property name="text">
+                  <string>新建列</string>
+                 </property>
+                </column>
+                <column>
+                 <property name="text">
+                  <string>新建列</string>
+                 </property>
+                </column>
+                <column>
+                 <property name="text">
+                  <string>新建列</string>
+                 </property>
+                </column>
+                <column>
+                 <property name="text">
+                  <string>新建列</string>
+                 </property>
+                </column>
+                <column>
+                 <property name="text">
+                  <string>新建列</string>
                  </property>
                 </column>
                 <column>
